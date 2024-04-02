@@ -4,7 +4,7 @@ We cover the basics of Bitcoin and open blockchain systems. This session will co
 
 *This unit aims to provide you with a basic understanding of what Bitcoin is doing and how this open and decentralized system can function without centralized control.*
 
-## 1.1: What is Bitcoin?
+## 1.1 What is Bitcoin?
 
 - Bitcoin is a collection of concepts and technologies that form the basis of a digital money ecosystem. Units of currency called bitcoin are used to store and transmit value among participants in the bitcoin network. 
 
@@ -14,7 +14,7 @@ We cover the basics of Bitcoin and open blockchain systems. This session will co
 
 - Users can transfer bitcoin over the network to do just about anything that can be done with conventional currencies, including buying and selling goods, sending money to people or organizations, or extending credit. Bitcoin can be purchased, sold, and exchanged for other currencies at specialized currency exchanges. Bitcoin in a sense is the perfect form of money for the internet because it is fast, secure, and borderless.
 
-**Bitcoin**:
+## **Bitcoin**
 
 Bitcoin is a decentralized digital currency system that enables the storage and transmission of value through units called bitcoins. It operates via a peer-to-peer network and is based on open-source software, making it accessible on various computing devices.
 
@@ -24,10 +24,9 @@ Bitcoin's innovations include a decentralized network, a public transaction ledg
 
 Preceding Bitcoin, early digital currencies were centralized and susceptible to governmental intervention. Bitcoin's decentralized design provides resilience against such control, representing a transformative innovation in digital currency.
 
-For more details, refer to the original Bitcoin whitepaper: [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/en/bitcoin-paper)
 
 
-# Depth
+## Depth
 
 **Bitcoin** is a revolutionary digital currency system built upon a collection of concepts and technologies. At its core, Bitcoin offers a decentralized ecosystem for storing and transmitting value through units of currency called bitcoins. Participants in the Bitcoin network communicate with each other using the Bitcoin protocol primarily over the internet, though alternative transport networks are also viable. The Bitcoin protocol stack, available as open-source software, is compatible with various computing devices, including laptops and smartphones, ensuring widespread accessibility.
 
@@ -49,3 +48,18 @@ The evolution of viable digital money is closely intertwined with advancements i
 Early digital currency endeavors emerged in the late 1980s, leveraging cryptography to issue digital money backed by national currencies or commodities like gold. Despite their functionality, these early digital currencies were centralized, rendering them susceptible to governmental intervention and hacking attempts. Centralized clearinghouses settled transactions, akin to traditional banking systems, making them vulnerable to regulatory crackdowns and abrupt liquidations.
 
 Bitcoin emerged as a decentralized alternative, offering resilience against centralized control and single points of attack. Its decentralized design eliminates the need for central authorities, ensuring robustness against government interference or malicious actors. Bitcoin's decentralized architecture, coupled with cryptographic security, positions it as a transformative innovation in the realm of digital currencies."
+
+
+## **History of Bitcoin**:
+
+Bitcoin was invented in 2008 with the publication of a paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System" by an individual or group under the alias Satoshi Nakamoto. Nakamoto combined previous inventions like b-money and HashCash to create a decentralized electronic cash system. This system relies on a distributed computation system known as a "Proof-of-Work" algorithm to achieve consensus without a central authority, solving the double-spend problem.
+
+The bitcoin network launched in 2009, based on Nakamoto's reference implementation. Mining, the process that provides security for bitcoin, has grown exponentially in power over time. Bitcoin's market value has surpassed $1 trillion at times, with transactions as large as $1.1 billion processed instantly for a minimal fee.
+
+Satoshi Nakamoto withdrew from the public eye in 2011, leaving the development of bitcoin to a community of volunteers. The identity of Nakamoto remains unknown, but bitcoin operates based on transparent mathematical principles, open-source code, and consensus among participants.
+
+**A Solution to a Distributed Computing Problem**:
+
+Bitcoin's invention provides a practical solution to the "Byzantine Generals' Problem" in distributed computing. This problem involves achieving consensus in an unreliable network without a central authority. Nakamoto's use of Proof-of-Work for decentralized consensus represents a breakthrough with broad applications beyond currency, including elections, lotteries, asset registries, and digital notarization.
+
+For more details, refer to the original Bitcoin whitepaper: [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/en/bitcoin-paper)
