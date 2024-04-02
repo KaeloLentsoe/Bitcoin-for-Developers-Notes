@@ -63,3 +63,5 @@ Satoshi Nakamoto withdrew from the public eye in 2011, leaving the development o
 Bitcoin's invention provides a practical solution to the "Byzantine Generals' Problem" in distributed computing. This problem involves achieving consensus in an unreliable network without a central authority. Nakamoto's use of Proof-of-Work for decentralized consensus represents a breakthrough with broad applications beyond currency, including elections, lotteries, asset registries, and digital notarization.
 
 For more details, refer to the original Bitcoin whitepaper: [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/en/bitcoin-paper)
+
+[Source: Andreas M. Antonopoulos LLC, GitHub](https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch08.asciidoc)
