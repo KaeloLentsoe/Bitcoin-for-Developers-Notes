@@ -36,7 +36,7 @@ In conclusion, Bitcoin's P2P network architecture is fundamental to its function
 # Node Types and Roles
 A nodes in the bitcoin P2P network are equal, they may take on different roles depending on the functionality they are supporting. A bitcoin node is a collection of functions: routing, the blockchain database, mining, and wallet services. 
 
-![Alt Text](/nde.png)
+![nodes](/nde.png)
 
 - **Bitcoin Node Functions**:
   - **Routing**: All nodes participate in network routing.
@@ -89,3 +89,37 @@ A nodes in the bitcoin P2P network are equal, they may take on different roles d
 5. **Other Node Types**:
    - **Description**: Servers and specialized protocols.
    - **Variety**: Mining pool protocols, lightweight client-access protocols.
+
+   # The Extended Bitcoin Network
+
+   Notes:
+
+- **Main Bitcoin Network**:
+  - Consists of around 5,000 to 8,000 listening nodes primarily using Bitcoin Core.
+  - Examples of implementations: Bitcoin Core, Bitcoin Classic, Bitcoin Unlimited, BitcoinJ, Libbitcoin, btcd, and bcoin.
+  - Includes mining nodes participating in the mining process and validating transactions.
+  - Large companies run full-node clients (e.g., Bitcoin Core) for network connectivity, without mining or wallet functions.
+
+- **Extended Bitcoin Network**:
+  - Incorporates specialized protocols alongside the main Bitcoin P2P network.
+  - Features pool servers and protocol gateways linking nodes with different protocols.
+  - Mainly comprises pool mining nodes and lightweight wallet clients lacking a full blockchain copy.
+
+- **Components of the Extended Bitcoin Network**:
+  - Node Types:
+    - Listening nodes: Run various Bitcoin implementations.
+    - Pool mining nodes: Participate in pooled mining activities.
+    - Edge routers: Operated by large companies for network connectivity.
+  - Gateways and Protocols:
+    - Pool servers: Coordinate mining activities within mining pools.
+    - Protocol gateways: Facilitate communication between nodes using different protocols.
+    - Examples of protocols: Bitcoin Core, Bitcoin Classic, Bitcoin Unlimited, etc.
+  - Functions:
+    - Competing in mining, validating transactions, creating new blocks.
+    - Enabling exchanges, wallets, block explorers, and merchant payment processing.
+
+    ![nodes](/nodes%202.png)
+
+    ### Figure 2. Different types of nodes on the extended bitcoin network
+
+    ![nodes](/node%203.png)
