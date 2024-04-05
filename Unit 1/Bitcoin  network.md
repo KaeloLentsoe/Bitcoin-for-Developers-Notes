@@ -285,3 +285,16 @@ To override the automatic management of peers and specify a list of IP addresses
 If there is no traffic on a connection, nodes will periodically send a message to maintain the connection. If a node has not communicated on a connection for more than 90 minutes, it is assumed to be disconnected, and a new peer will be sought. Thus, the network dynamically adjusts to transient nodes and network problems, and can organically grow and shrink as needed without any central control.
 
 
+---
+
+# Full Nodes
+
+Full Nodes
+Full nodes, often referred to as "full blockchain nodes," maintain a complete and up-to-date copy of the entire blockchain, containing all transactions. Historically, all nodes in the early years of Bitcoin were full nodes, and the Bitcoin Core client remains a prominent example of such a node. However, in recent years, there have been introductions of new types of Bitcoin clients known as lightweight clients, which do not maintain a full blockchain. We'll delve deeper into these lightweight clients in the following section.
+
+A full blockchain node independently constructs and verifies the complete bitcoin blockchain, starting from the genesis block and extending to the latest known block in the network. It is capable of autonomously and authoritatively validating any transaction without relying on any external node or source of information. To stay updated, a full blockchain node relies on the network to receive information about new blocks of transactions, which it then verifies and integrates into its local blockchain copy.
+
+Running a full blockchain node offers the quintessential Bitcoin experience: self-reliant verification of all transactions without dependence on or trust in external systems. Identifying a full node is relatively straightforward, as it necessitates over one hundred gigabytes of persistent storage (disk space) to accommodate the entire blockchain. If the synchronization process with the network takes two to three days and requires significant disk space, it indicates that you are running a full node. This requirement reflects the commitment to achieving complete independence and freedom from centralized authority.
+
+Various alternative implementations of full blockchain Bitcoin clients exist, employing different programming languages and software architectures. Nonetheless, the most prevalent implementation remains the reference client, Bitcoin Core, also known as the Satoshi client. Over 75% of the nodes in the Bitcoin network run different versions of Bitcoin Core. This implementation is identifiable as "Satoshi" in the sub-version string transmitted in the version message, as demonstrated by the `getpeerinfo` command earlier, such as `/Satoshi:0.8.6/`.
+
