@@ -235,3 +235,53 @@ Figure 5. Address propagation and discovery
 12. **Maintaining Connection Information**: After bootstrapping, a node remembers its most recent successful peer connections. This information allows the node to quickly reestablish connections with its former peer network if it is rebooted or loses connections. If none of the former peers respond to its connection requests, the node can use seed nodes again to bootstrap and discover new peers.
 
 To maintain connectivity and resilience in the Bitcoin network, nodes establish diverse paths by connecting to multiple peers. They continually discover new nodes to replace lost connections and assist in bootstrapping other nodes. Despite the dynamic nature of the network, nodes can efficiently maintain connections by remembering recent peer connections and utilizing seed nodes when necessary.
+
+It appears you're requesting a fix for the provided text regarding Bitcoin peer connections and management. Below is the revised version:
+
+---
+
+On a node running the Bitcoin Core client, you can list the peer connections with the command `getpeerinfo`:
+
+```shell
+$ bitcoin-cli getpeerinfo
+ [
+    {
+        "addr" : "85.213.199.39:8333",
+        "services" : "00000001",
+        "lastsend" : 1405634126,
+        "lastrecv" : 1405634127,
+        "bytessent" : 23487651,
+        "bytesrecv" : 138679099,
+        "conntime" : 1405021768,
+        "pingtime" : 0.00000000,
+        "version" : 70002,
+        "subver" : "/Satoshi:0.9.2.1/",
+        "inbound" : false,
+        "startingheight" : 310131,
+        "banscore" : 0,
+        "syncnode" : true
+    },
+    {
+        "addr" : "58.23.244.20:8333",
+        "services" : "00000001",
+        "lastsend" : 1405634127,
+        "lastrecv" : 1405634124,
+        "bytessent" : 4460918,
+        "bytesrecv" : 8903575,
+        "conntime" : 1405559628,
+        "pingtime" : 0.00000000,
+        "version" : 70001,
+        "subver" : "/Satoshi:0.8.6/",
+        "inbound" : false,
+        "startingheight" : 311074,
+        "banscore" : 0,
+        "syncnode" : false
+    }
+]
+```
+
+To override the automatic management of peers and specify a list of IP addresses, users can provide the option `-connect=<IPAddress>` and specify one or more IP addresses. If this option is used, the node will only connect to the selected IP addresses, instead of discovering and maintaining the peer connections automatically.
+
+If there is no traffic on a connection, nodes will periodically send a message to maintain the connection. If a node has not communicated on a connection for more than 90 minutes, it is assumed to be disconnected, and a new peer will be sought. Thus, the network dynamically adjusts to transient nodes and network problems, and can organically grow and shrink as needed without any central control.
+
+
