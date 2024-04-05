@@ -298,3 +298,33 @@ Running a full blockchain node offers the quintessential Bitcoin experience: sel
 
 Various alternative implementations of full blockchain Bitcoin clients exist, employing different programming languages and software architectures. Nonetheless, the most prevalent implementation remains the reference client, Bitcoin Core, also known as the Satoshi client. Over 75% of the nodes in the Bitcoin network run different versions of Bitcoin Core. This implementation is identifiable as "Satoshi" in the sub-version string transmitted in the version message, as demonstrated by the `getpeerinfo` command earlier, such as `/Satoshi:0.8.6/`.
 
+### Exchanging "Inventory" 
+
+- **Initial Blockchain Construction**:
+  - Upon connection to peers, a full node begins constructing the complete blockchain.
+  - If it's a new node with no blockchain data, it starts with the genesis block embedded in the client software.
+  - It downloads numerous blocks to synchronize with the network and establish the full blockchain.
+
+- **Syncing Process**:
+  - Syncing starts with the version message, containing BestHeight (current blockchain height).
+  - Nodes compare their blockchain heights with peers.
+  - Peers exchange getblocks messages with top block hashes from their local blockchain.
+  - A node identifies a received hash belonging to an older block, indicating its blockchain is longer.
+  - The longer blockchain node identifies and shares the first 500 missing blocks using an inv message.
+  - The node missing blocks requests them via getdata messages, specifying block hashes from the inv message.
+
+- **Example Scenario**:
+  - A node with only the genesis block receives an inv message with hashes of the next 500 blocks.
+  - It requests blocks from connected peers, distributing requests to avoid overwhelming any peer.
+  - The node monitors "in transit" blocks per peer, ensuring it doesn't exceed a set limit.
+  - It requests new blocks as previous requests are fulfilled, controlling the pace of updates and network load.
+  - Each received block is added to the local blockchain.
+
+- **Continual Synchronization**:
+  - The process repeats whenever a node goes offline, regardless of the duration.
+  - It initiates with getblocks, receives an inv response, and downloads missing blocks.
+  - This process illustrates the inventory and block propagation protocol during blockchain synchronization.
+
+  ### Figure 6. Node synchronizing the blockchain by retrieving blocks from a peer
+  ![nodes](/f4.png)
+
