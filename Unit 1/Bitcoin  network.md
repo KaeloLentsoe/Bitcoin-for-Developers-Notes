@@ -30,4 +30,61 @@ The peer-to-peer (P2P) network architecture forms the foundational structure of 
 5. **Extended Bitcoin Network:**
    The term "bitcoin network" encompasses the collection of nodes running the Bitcoin P2P protocol. Additionally, there are other protocols such as Stratum used for mining and lightweight wallets. Gateway routing servers facilitate communication between nodes using different protocols, extending the Bitcoin network to include these additional protocols. The extended Bitcoin network includes the Bitcoin P2P protocol, pool-mining protocols, Stratum protocol, and any related protocols connecting various components of the Bitcoin system.
 
-Overall, Bitcoin's P2P network architecture is fundamental to its functioning as a decentralized digital currency. It not only ensures the integrity and security of transactions but also embodies the core principles of decentralization, openness, and resilience.
+In conclusion, Bitcoin's P2P network architecture is fundamental to its functioning as a decentralized digital currency. It not only ensures the integrity and security of transactions but also embodies the core principles of decentralization, openness, and resilience.
+
+
+# Node Types and Roles
+A nodes in the bitcoin P2P network are equal, they may take on different roles depending on the functionality they are supporting. A bitcoin node is a collection of functions: routing, the blockchain database, mining, and wallet services. 
+
+
+- **Bitcoin Node Functions**:
+  - **Routing**: All nodes participate in network routing.
+  - **Blockchain Database**: Some nodes maintain a complete copy of the blockchain.
+  - **Mining**: Nodes compete to create new blocks through Proof-of-Work.
+  - **Wallet Services**: Nodes may host user wallets.
+
+- **Full Nodes**:
+  - **Description**: Maintain a complete and up-to-date copy of the blockchain.
+  - **Functionality**: Can autonomously verify any transaction without external reference.
+  - **Representation**: Indicated with a circle labeled "Full Blockchain" or the letter "B".
+
+- **SPV (Simplified Payment Verification) Nodes**:
+  - **Description**: Maintain only a subset of the blockchain.
+  - **Functionality**: Verify transactions using SPV method.
+  - **Representation**: Shown without the "B" circle, indicating incomplete blockchain copy.
+
+- **Mining Nodes**:
+  - **Description**: Compete to create new blocks through specialized hardware.
+  - **Variety**: Some are full nodes, others participate in pool mining.
+  - **Representation**: Depicted as a circle labeled "Miner" or the letter "M".
+
+- **Wallet Nodes**:
+  - **Description**: Store user wallets, may be part of full nodes or standalone.
+  - **Variety**: Often included in desktop bitcoin clients or as SPV nodes on smartphones.
+  - **Representation**: Shown as a circle labeled "Wallet" or the letter "W".
+
+- **Other Node Types**:
+  - **Description**: Servers and nodes running specialized protocols.
+  - **Variety**: Include specialized mining pool protocols and lightweight client-access protocols.
+
+### Examples:
+
+1. **Full Node**:
+   - **Functionality**: Maintains complete blockchain.
+   - **Representation**: Circle labeled "Full Blockchain" or "B".
+
+2. **SPV Node**:
+   - **Functionality**: Maintains subset of blockchain.
+   - **Representation**: Shown without "B" circle.
+
+3. **Mining Node**:
+   - **Functionality**: Competes in block creation.
+   - **Representation**: Circle labeled "Miner" or "M".
+
+4. **Wallet Node**:
+   - **Functionality**: Hosts user wallets.
+   - **Representation**: Circle labeled "Wallet" or "W".
+
+5. **Other Node Types**:
+   - **Description**: Servers and specialized protocols.
+   - **Variety**: Mining pool protocols, lightweight client-access protocols.
