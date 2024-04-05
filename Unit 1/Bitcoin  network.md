@@ -123,3 +123,115 @@ A nodes in the bitcoin P2P network are equal, they may take on different roles d
     ### Figure 2. Different types of nodes on the extended bitcoin network
 
     ![nodes](/node%203.png)
+
+
+   # Bitcoin Relay Networks
+
+- **Purpose**: Bitcoin Relay Networks aim to minimize network latency for mining nodes, crucial for their time-sensitive competition to solve the Proof-of-Work problem and extend the blockchain.
+
+- **Bitcoin P2P Network**: While the general P2P network serves various node types, it exhibits high latency for mining nodes, directly impacting their profit margins.
+
+- **Original Bitcoin Relay Network (2015)**:
+  - **Creator**: Core developer Matt Corallo.
+  - **Infrastructure**: Hosted on Amazon Web Services globally.
+  - **Functionality**: Enabled fast block synchronization between miners with low latency, connecting the majority of miners and mining pools.
+
+- **Fast Internet Bitcoin Relay Engine (FIBRE) - 2016**:
+  - **Creator**: Matt Corallo.
+  - **Technology**: UDP-based relay network.
+  - **Optimization**: Implements compact block optimization to reduce data transmission and further minimize network latency.
+
+- **Role of Relay Networks**:
+  - They serve as overlay networks, providing additional connectivity for nodes with specialized needs, without replacing the primary P2P network.
+  - Analogous to freeways in a transportation network, offering faster routes for specific traffic (mining nodes), while the primary network serves as rural roads.
+
+  # Network Discovery
+
+  The process of network discovery for a new Bitcoin node involves several steps:
+
+  Sure, here's a step-by-step breakdown with examples:
+
+1. **Initial Bootstrapping**: Imagine a new Bitcoin node, Node A, coming online for the first time. It needs to discover other nodes on the network to join the Bitcoin network. Node A randomly selects an existing node, Node B, from a list of DNS seeds or from a provided IP address.
+
+2. **Connection Establishment**: Node A establishes a TCP connection to Node B, usually on port 8333, and initiates a handshake by sending a version message:
+
+```plaintext
+Version Message from Node A to Node B:
+- Protocol Version: 70002
+- Supported Services: NODE_NETWORK
+- Current Time: [timestamp]
+- IP Address of Node A: [Node A's IP]
+- IP Address of Node B: [Node B's IP]
+- Software Version: /Satoshi:0.9.2.1/
+- Blockchain Height: [height]
+```
+
+3. **Version Message Exchange**: Node B receives the version message from Node A, checks compatibility, and if compatible, sends a verack message to acknowledge and establish the connection.
+
+```plaintext
+Verack Message from Node B to Node A:
+- Acknowledgment of Version Message
+```
+
+4. **DNS Querying**: If Node A used DNS querying, it would have sent DNS requests to DNS seeds to obtain IP addresses of other Bitcoin nodes. For example:
+
+```plaintext
+DNS Query to DNS Seed:
+- Requesting Bitcoin Node Addresses
+- DNS Seed Responds with List of IP Addresses
+```
+
+5. **Seed Node Connection**: Alternatively, if Node A was given the IP address of a seed node, it would connect to it and request introductions to other nodes. For example:
+
+```plaintext
+Connection to Seed Node:
+- Node A connects to Seed Node C (IP: [Seed Node C's IP])
+- Seed Node C provides introductions to Node A:
+  - Introduce Node A to Node D (IP: [Node D's IP])
+  - Introduce Node A to Node E (IP: [Node E's IP])
+- Node A disconnects from Seed Node C and connects to Node D and Node E for further interactions.
+```
+
+In this way, Node A discovers and connects to other nodes on the Bitcoin network through a combination of DNS querying and seed node connections.
+
+### Figure 4. The initial handshake between peers
+
+![nodes](/figure.png)
+
+
+6. **Address Propagation and Discovery**: Once one or more connections are established, the new node starts actively participating in the network by sending an addr message containing its own IP address to its connected peers.
+
+```plaintext
+Addr Message from Node A to Node B:
+- Node A's IP Address: [Node A's IP]
+```
+
+7. **Address Forwarding**: Node B, upon receiving the addr message from Node A, forwards it to its own neighbors, ensuring that the information about Node A's existence is propagated further across the network.
+
+8. **Address Request**: Additionally, Node A can also send a getaddr message to its neighbors, asking them to return a list of IP addresses of other peers.
+
+```plaintext
+Getaddr Message from Node A to Node B:
+- Requesting IP Addresses of Other Peers
+```
+
+9. **Peer Discovery**: In response to the getaddr message, Node B and other peers will send addr messages back to Node A, containing lists of IP addresses of other peers, enabling Node A to discover additional nodes to connect to and further expand its network reach.
+
+```plaintext
+Addr Message from Node B to Node A:
+- List of IP Addresses of Other Peers: [Peer 1's IP], [Peer 2's IP], ...
+```
+
+In summary, through the exchange of addr messages, forwarding of address information by connected peers, and the request and response mechanism facilitated by getaddr messages, a new node can actively participate in the Bitcoin network, discover additional peers, and expand its network connections. This address propagation and discovery protocol ensure that the Bitcoin network remains well-connected and nodes can efficiently find and connect to each other.
+
+Figure 5. Address propagation and discovery
+![nodes](/f2.png)
+
+
+10. **Establishing Diverse Paths**: A node must connect to several different peers to establish diverse paths into the Bitcoin network. This diversity ensures resilience against network disruptions and provides multiple routes for information propagation. However, these paths are not persistent because nodes in the network constantly join and leave. Thus, a node must continually discover new nodes to replace lost connections and assist other nodes in bootstrapping.
+
+11. **Bootstrap with One Connection**: Initially, only one connection is needed for bootstrapping because the first connected node can introduce the new node to its own peers. These peers can then offer further introductions, facilitating the expansion of the new node's network connections. Connecting to more than a handful of nodes is unnecessary and wasteful of network resources.
+
+12. **Maintaining Connection Information**: After bootstrapping, a node remembers its most recent successful peer connections. This information allows the node to quickly reestablish connections with its former peer network if it is rebooted or loses connections. If none of the former peers respond to its connection requests, the node can use seed nodes again to bootstrap and discover new peers.
+
+To maintain connectivity and resilience in the Bitcoin network, nodes establish diverse paths by connecting to multiple peers. They continually discover new nodes to replace lost connections and assist in bootstrapping other nodes. Despite the dynamic nature of the network, nodes can efficiently maintain connections by remembering recent peer connections and utilizing seed nodes when necessary.
