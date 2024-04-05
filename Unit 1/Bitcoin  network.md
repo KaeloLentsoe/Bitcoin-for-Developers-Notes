@@ -36,6 +36,7 @@ In conclusion, Bitcoin's P2P network architecture is fundamental to its function
 # Node Types and Roles
 A nodes in the bitcoin P2P network are equal, they may take on different roles depending on the functionality they are supporting. A bitcoin node is a collection of functions: routing, the blockchain database, mining, and wallet services. 
 
+![Alt Text](/nde.png)
 
 - **Bitcoin Node Functions**:
   - **Routing**: All nodes participate in network routing.
