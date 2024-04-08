@@ -71,3 +71,24 @@ Alice's transaction decoded:
 This raw transaction data reveals detailed information such as transaction IDs (`txid`), version numbers, locktimes, input (`vin`) and output (`vout`) details, script signatures (`scriptSig`), and script public keys (`scriptPubKey`).
 
 This process allows us to access the raw data of the transaction and understand its true structure and content.
+
+
+# Transaction Outputs and Inputs
+Bitcoin transactions are built upon transaction outputs, which are discrete units of bitcoin currency recorded on the blockchain and universally recognized by the network. Nodes in the Bitcoin network keep track of all spendable outputs, known as Unspent Transaction Outputs (UTXO), which form the UTXO set. This set continually changes as new outputs are created and spent. Each transaction represents a change in this UTXO set.
+
+When a user's wallet "receives" bitcoin, it means the wallet has detected a UTXO on the blockchain that it can spend with its controlled keys. The wallet's bitcoin "balance" is the sum of all spendable UTXO associated with the wallet, scattered across multiple transactions and blocks. Wallet applications calculate this balance by scanning the blockchain and aggregating the value of spendable UTXO. Most wallets maintain a database for quick reference of these spendable UTXO.
+
+As transactions are built on the blockchain, they spend UTXO created by previous transactions, turning them into Spent Transaction Outputs (STXO). If a transaction creates change outputs, the UTXO set size increases. For instance, if a transaction spends one UTXO and creates two new ones (payment and change), it increases the UTXO set size by one.
+
+**Figure 2. Transaction chain from Joe to Gopesh being built on the blockchain**
+![UTXO & STXO](/Unit%201/Utxo.png)
+
+A Bitcoin transaction output holds a value in satoshis, divisible down to eight decimal places. Once created, an output cannot be divided further. This means if a transaction output is larger than needed, it must be spent entirely, generating change.
+
+For instance, if you have a 20-bitcoin output but only need to pay 1 bitcoin, the entire 20-bitcoin output must be spent. This creates two outputs: one for the payment and another for the change back to your wallet. Most transactions generate change due to this indivisible nature.
+
+This process mirrors real-life scenarios where people pay with exact change or larger denominations, receiving change back. Similarly, Bitcoin transactions use available outputs to meet the transaction amount. The wallet selects outputs automatically, combining smaller units or using larger ones as needed.
+
+Transactions consume previous unspent outputs and create new ones, facilitating the transfer of bitcoin value. However, the first transaction in each block, called the coinbase transaction, is unique. It's created by the winning miner and generates new bitcoin as a mining reward, without consuming previous outputs. This is how new bitcoin enters circulation during mining.
+
+# Transaction Outputs
