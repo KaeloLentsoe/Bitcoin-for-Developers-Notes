@@ -36,7 +36,7 @@ In conclusion, Bitcoin's P2P network architecture is fundamental to its function
 # Node Types and Roles
 A nodes in the bitcoin P2P network are equal, they may take on different roles depending on the functionality they are supporting. A bitcoin node is a collection of functions: routing, the blockchain database, mining, and wallet services. 
 
-![nodes](/nde.png)
+![nodes](/Unit%201/nde.png)
 
 - **Bitcoin Node Functions**:
   - **Routing**: All nodes participate in network routing.
@@ -118,11 +118,11 @@ A nodes in the bitcoin P2P network are equal, they may take on different roles d
     - Competing in mining, validating transactions, creating new blocks.
     - Enabling exchanges, wallets, block explorers, and merchant payment processing.
 
-    ![nodes](/nodes%202.png)
+    ![nodes](/Unit%201/nodes%202.png)
 
     ### Figure 2. Different types of nodes on the extended bitcoin network
 
-    ![nodes](/node%203.png)
+    ![nodes](/Unit%201/node%203.png)
 
 
    # Bitcoin Relay Networks
@@ -196,7 +196,7 @@ In this way, Node A discovers and connects to other nodes on the Bitcoin network
 
 ### Figure 4. The initial handshake between peers
 
-![nodes](/figure.png)
+![nodes](/Unit%201/figure.png)
 
 
 6. **Address Propagation and Discovery**: Once one or more connections are established, the new node starts actively participating in the network by sending an addr message containing its own IP address to its connected peers.
@@ -225,7 +225,7 @@ Addr Message from Node B to Node A:
 In summary, through the exchange of addr messages, forwarding of address information by connected peers, and the request and response mechanism facilitated by getaddr messages, a new node can actively participate in the Bitcoin network, discover additional peers, and expand its network connections. This address propagation and discovery protocol ensure that the Bitcoin network remains well-connected and nodes can efficiently find and connect to each other.
 
 Figure 5. Address propagation and discovery
-![nodes](/f2.png)
+![nodes](/Unit%201/f2.png)
 
 
 10. **Establishing Diverse Paths**: A node must connect to several different peers to establish diverse paths into the Bitcoin network. This diversity ensures resilience against network disruptions and provides multiple routes for information propagation. However, these paths are not persistent because nodes in the network constantly join and leave. Thus, a node must continually discover new nodes to replace lost connections and assist other nodes in bootstrapping.
@@ -326,5 +326,5 @@ Various alternative implementations of full blockchain Bitcoin clients exist, em
   - This process illustrates the inventory and block propagation protocol during blockchain synchronization.
 
   ### Figure 6. Node synchronizing the blockchain by retrieving blocks from a peer
-  ![nodes](/f4.png)
+  ![nodes](/Unit%201/f4.png)
 
