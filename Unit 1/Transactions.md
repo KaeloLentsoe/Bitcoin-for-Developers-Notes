@@ -18,7 +18,8 @@ Let's examine all the various forms of transactions, what they contain, how to c
 The block explorer application displays a transaction from Alice's "address" to Bob's "address." However, this representation provides a greatly simplified view of what is contained within a transaction.
 
 **Figure 1. Alice's transaction to Bob's Cafe**
-[trans](/Unit%201/trans....png)
+
+![trans](/Unit%201/trans....png)
 
 
 ### Transactions - Behind the Scenes
